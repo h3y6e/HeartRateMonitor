@@ -407,7 +407,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"HeartRateMonitor WatchKit Extension/Preview Content\"";
-				DEVELOPMENT_TEAM = V9DQU22C7B;
+				DEVELOPMENT_TEAM = 85PG4K3WC6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "HeartRateMonitor WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -431,7 +431,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"HeartRateMonitor WatchKit Extension/Preview Content\"";
-				DEVELOPMENT_TEAM = V9DQU22C7B;
+				DEVELOPMENT_TEAM = 85PG4K3WC6;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "HeartRateMonitor WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -456,7 +456,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V9DQU22C7B;
+				DEVELOPMENT_TEAM = 85PG4K3WC6;
 				IBSC_MODULE = HeartRateMonitor_WatchKit_Extension;
 				INFOPLIST_FILE = "HeartRateMonitor WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = dev.5ebec.HeartRateMonitor.watchkitapp;
@@ -476,7 +476,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V9DQU22C7B;
+				DEVELOPMENT_TEAM = 85PG4K3WC6;
 				IBSC_MODULE = HeartRateMonitor_WatchKit_Extension;
 				INFOPLIST_FILE = "HeartRateMonitor WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = dev.5ebec.HeartRateMonitor.watchkitapp;
@@ -494,7 +494,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V9DQU22C7B;
+				DEVELOPMENT_TEAM = 85PG4K3WC6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.5ebec.HeartRateMonitor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -507,7 +507,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V9DQU22C7B;
+				DEVELOPMENT_TEAM = 85PG4K3WC6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.5ebec.HeartRateMonitor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
