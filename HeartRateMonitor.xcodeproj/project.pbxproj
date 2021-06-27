@@ -73,6 +73,7 @@
 		BC02EE952688797700B7E440 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BC02EE972688797700B7E440 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BC02EEA52688799B00B7E440 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		BCD5CCC22688875F00E6C4E9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +90,7 @@
 		BC02EE702688797500B7E440 = {
 			isa = PBXGroup;
 			children = (
+				BCD5CCC22688875F00E6C4E9 /* README.md */,
 				BC02EEA52688799B00B7E440 /* .gitignore */,
 				BC02EE7F2688797500B7E440 /* HeartRateMonitor WatchKit App */,
 				BC02EE8B2688797600B7E440 /* HeartRateMonitor WatchKit Extension */,
