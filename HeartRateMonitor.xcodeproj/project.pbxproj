@@ -86,6 +86,7 @@
 		BC15E37F2688AC6F00F55346 /* ElapsedTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElapsedTimeView.swift; sourceTree = "<group>"; };
 		BC15E3852688DB6A00F55346 /* HeartRateMonitor WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "HeartRateMonitor WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		BC15E3872688DB6A00F55346 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS7.4.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
+		BC15E38B268AF0A600F55346 /* demo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo.png; sourceTree = "<group>"; };
 		BCD5CCC22688875F00E6C4E9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +105,7 @@
 		BC02EE702688797500B7E440 = {
 			isa = PBXGroup;
 			children = (
+				BC15E389268AF06B00F55346 /* img */,
 				BCD5CCC22688875F00E6C4E9 /* README.md */,
 				BC02EEA52688799B00B7E440 /* .gitignore */,
 				BC02EE7F2688797500B7E440 /* HeartRateMonitor WatchKit App */,
@@ -173,6 +175,14 @@
 				BC15E3872688DB6A00F55346 /* HealthKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BC15E389268AF06B00F55346 /* img */ = {
+			isa = PBXGroup;
+			children = (
+				BC15E38B268AF0A600F55346 /* demo.png */,
+			);
+			path = img;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
