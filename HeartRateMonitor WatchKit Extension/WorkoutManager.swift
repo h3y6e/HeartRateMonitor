@@ -67,7 +67,13 @@ class WorkoutManager: NSObject, ObservableObject {
         
         // Request authorization for those quantity types.
         healthStore.requestAuthorization(toShare: typesToShare, read: typesToRead) { (success, error) in
-            // Handle error.
+            if let e = error {
+                print("error: \(e.localizedDescription)")
+                return
+            }
+            if success {
+                print("success")
+            }
         }
     }
     
@@ -85,14 +91,17 @@ class WorkoutManager: NSObject, ObservableObject {
     }
     
     func pause() {
+        print("pause")
         session?.pause()
     }
     
     func resume() {
+        print("resume")
         session?.resume()
     }
     
     func endWorkout() {
+        print("end")
         session?.end()
     }
     
@@ -103,20 +112,20 @@ class WorkoutManager: NSObject, ObservableObject {
     
     func updateForStatistics(_ statistics: HKStatistics?) {
         guard let statistics = statistics else { return }
+
+        let heartRateUnit = HKUnit(from: "count/min")
+        let averageHeartRate = statistics.averageQuantity()?.doubleValue(for: heartRateUnit) ?? 0
+        let heartRate = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit) ?? 0
+        print("average heart rate: \(averageHeartRate)\nheart rate: \(heartRate)")
         
         DispatchQueue.main.async {
-            switch statistics.quantityType {
-            case HKQuantityType.quantityType(forIdentifier: .heartRate):
-                let heartRateUnit = HKUnit.count().unitDivided(by: HKUnit.minute())
-                self.averageHeartRate = statistics.averageQuantity()?.doubleValue(for: heartRateUnit) ?? 0
-                self.heartRate = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit) ?? 0
-            default:
-                return
-            }
+            self.averageHeartRate = averageHeartRate
+            self.heartRate = heartRate
         }
     }
     
     func resetWorkout() {
+        print("reset")
         workoutType = nil
         builder = nil
         workout = nil
@@ -138,6 +147,10 @@ extension WorkoutManager: HKWorkoutSessionDelegate {
         if toState == .ended {
             builder?.endCollection(withEnd: date) { (success, error) in
                 self.builder?.finishWorkout { (workout, error) in
+                    if let e = error {
+                        print("Error: \(e.localizedDescription)")
+                        return
+                    }
                     DispatchQueue.main.async {
                         self.workout = workout
                     }
@@ -159,9 +172,7 @@ extension WorkoutManager: HKLiveWorkoutBuilderDelegate {
     
     func workoutBuilder(_ workoutBuilder: HKLiveWorkoutBuilder, didCollectDataOf collectedTypes: Set<HKSampleType>) {
         for type in collectedTypes {
-            guard let quantityType = type as? HKQuantityType else {
-                return // Nothing to do.
-            }
+            guard let quantityType = type as? HKQuantityType else { return }
             
             let statistics = workoutBuilder.statistics(for: quantityType)
             
