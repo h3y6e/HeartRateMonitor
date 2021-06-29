@@ -32,7 +32,17 @@
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.watchkit</string>
 	</dict>
+	<key>UIBackgroundModes</key>
+	<array/>
+	<key>WKBackgroundModes</key>
+	<array>
+		<string>workout-processing</string>
+	</array>
 	<key>WKWatchOnly</key>
 	<true/>
+	<key>NSHealthShareUsageDescription</key>
+	<string>Measure your heart rate.</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Measure your heart rate.</string>
 </dict>
 </plist>

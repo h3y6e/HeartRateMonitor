@@ -7,23 +7,19 @@
 
 import SwiftUI
 
-enum Tab {
-    case controls, metrics
-}
-
 struct PagingView: View {
-    @State private var selection: Tab = .controls
+    @EnvironmentObject var workoutManager: WorkoutManager
     
     var body: some View {
-        TabView(selection: $selection, content: {
-                    ControlsView().tag(Tab.controls)
-                    MetricsView().tag(Tab.metrics)
-                })
+        VStack {
+            MetricsView()
+            ControlsView()
+        }
     }
 }
 
 struct PagingView_Previews: PreviewProvider {
     static var previews: some View {
-        PagingView()
+        PagingView().environmentObject(WorkoutManager())
     }
 }
