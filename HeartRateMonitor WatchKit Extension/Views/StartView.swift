@@ -10,6 +10,7 @@ import HealthKit
 
 struct StartView: View {
     @EnvironmentObject var workoutManager: WorkoutManager
+    
     var workoutType: HKWorkoutActivityType = .other
     
     var body: some View {
@@ -30,6 +31,7 @@ struct StartView: View {
 
 struct StartView_Previews: PreviewProvider {
     static var previews: some View {
-        StartView().environmentObject(WorkoutManager())
+        StartView()
+            .environmentObject(WorkoutManager())
     }
 }

@@ -20,6 +20,11 @@ class WorkoutManager: NSObject, ObservableObject {
     var session: HKWorkoutSession?
     var builder: HKLiveWorkoutBuilder?
     
+    // network client
+    let networkClient = NetworkClient()
+    @Published var ip: String = "127.0.0.1"
+    @Published var port: UInt16 = 5000
+    
     // Start the workout.
     func startWorkout(workoutType: HKWorkoutActivityType) {
         let configuration = HKWorkoutConfiguration()
@@ -50,6 +55,7 @@ class WorkoutManager: NSObject, ObservableObject {
         builder?.beginCollection(withStart: startDate) { (success, error) in
             // The workout has started.
         }
+        networkClient.open(ip: ip, port: port)
     }
     
     // Request authorization to access HealthKit.
@@ -103,6 +109,7 @@ class WorkoutManager: NSObject, ObservableObject {
     func endWorkout() {
         print("end")
         session?.end()
+        networkClient.close()
     }
     
     // MARK: - Workout Metrics
@@ -116,7 +123,8 @@ class WorkoutManager: NSObject, ObservableObject {
         let heartRateUnit = HKUnit(from: "count/min")
         let averageHeartRate = statistics.averageQuantity()?.doubleValue(for: heartRateUnit) ?? 0
         let heartRate = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit) ?? 0
-        print("average heart rate: \(averageHeartRate)\nheart rate: \(heartRate)")
+        networkClient.send(text: "\(builder?.elapsedTime ?? 0),\(heartRate),\(averageHeartRate)")
+        print("heart rate: \(heartRate)\naverage heart rate: \(averageHeartRate)\n")
         
         DispatchQueue.main.async {
             self.averageHeartRate = averageHeartRate
@@ -166,6 +174,7 @@ extension WorkoutManager: HKWorkoutSessionDelegate {
 
 // MARK: - HKLiveWorkoutBuilderDelegate
 extension WorkoutManager: HKLiveWorkoutBuilderDelegate {
+
     func workoutBuilderDidCollectEvent(_ workoutBuilder: HKLiveWorkoutBuilder) {
         
     }

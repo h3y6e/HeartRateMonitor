@@ -22,6 +22,7 @@
 		BC15E37E26889B4400F55346 /* WorkoutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC15E37D26889B4400F55346 /* WorkoutManager.swift */; };
 		BC15E3802688AC6F00F55346 /* ElapsedTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC15E37F2688AC6F00F55346 /* ElapsedTimeView.swift */; };
 		BC15E3882688DB6A00F55346 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC15E3872688DB6A00F55346 /* HealthKit.framework */; };
+		BC8543202696C911006B3DF8 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC85431F2696C911006B3DF8 /* NetworkClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		BC15E3852688DB6A00F55346 /* HeartRateMonitor WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "HeartRateMonitor WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		BC15E3872688DB6A00F55346 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS7.4.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		BC15E38B268AF0A600F55346 /* demo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demo.png; sourceTree = "<group>"; };
+		BC85431F2696C911006B3DF8 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		BCD5CCC22688875F00E6C4E9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,8 +139,8 @@
 		BC02EE8B2688797600B7E440 /* HeartRateMonitor WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				BC8543212696C93E006B3DF8 /* Controllers */,
 				BC15E3852688DB6A00F55346 /* HeartRateMonitor WatchKit Extension.entitlements */,
-				BC15E37D26889B4400F55346 /* WorkoutManager.swift */,
 				BC15E37726888C1000F55346 /* Views */,
 				BC02EE8E2688797600B7E440 /* HeartRateMonitorApp.swift */,
 				BC02EE902688797600B7E440 /* ComplicationController.swift */,
@@ -183,6 +185,15 @@
 				BC15E38B268AF0A600F55346 /* demo.png */,
 			);
 			path = img;
+			sourceTree = "<group>";
+		};
+		BC8543212696C93E006B3DF8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BC15E37D26889B4400F55346 /* WorkoutManager.swift */,
+				BC85431F2696C911006B3DF8 /* NetworkClient.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,6 +328,7 @@
 				BC02EE8D2688797600B7E440 /* StartView.swift in Sources */,
 				BC15E3802688AC6F00F55346 /* ElapsedTimeView.swift in Sources */,
 				BC02EE8F2688797600B7E440 /* HeartRateMonitorApp.swift in Sources */,
+				BC8543202696C911006B3DF8 /* NetworkClient.swift in Sources */,
 				BC15E37926888CFD00F55346 /* PagingView.swift in Sources */,
 				BC15E37B26888E5500F55346 /* MetricsView.swift in Sources */,
 				BC02EE912688797600B7E440 /* ComplicationController.swift in Sources */,

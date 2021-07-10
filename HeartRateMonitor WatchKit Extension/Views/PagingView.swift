@@ -20,6 +20,7 @@ struct PagingView: View {
 
 struct PagingView_Previews: PreviewProvider {
     static var previews: some View {
-        PagingView().environmentObject(WorkoutManager())
+        PagingView()
+            .environmentObject(WorkoutManager())
     }
 }
