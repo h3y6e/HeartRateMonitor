@@ -14,7 +14,7 @@ class NetworkClient: ObservableObject {
     func open(ip: String, port: UInt16) {
         let host = NWEndpoint.Host(ip)
         let port = NWEndpoint.Port(integerLiteral: port)
-        self.connection = NWConnection(host: host, port: port, using: .tcp)
+        self.connection = NWConnection(host: host, port: port, using: .udp)
         self.connection?.stateUpdateHandler = { (newState) in
             switch(newState) {
             case .ready:
@@ -38,13 +38,13 @@ class NetworkClient: ObservableObject {
     }
 
     func send(text: String) {
-        let data = "\(text)\n".data(using: .utf8)!
+        let data = text.data(using: .utf8)!
         
         self.connection?.send(content: data, completion: .contentProcessed { (error) in
             if let e = error {
                 print("Error: \(e.localizedDescription)")
             } else {
-                print("Sent: \(data)")
+                print("Sent: \(text) (\(data))")
             }
         })
     }
