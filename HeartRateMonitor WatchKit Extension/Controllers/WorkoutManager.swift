@@ -20,11 +20,6 @@ class WorkoutManager: NSObject, ObservableObject {
     var session: HKWorkoutSession?
     var builder: HKLiveWorkoutBuilder?
     
-    // network client
-    let networkClient = NetworkClient()
-    @Published var ip: String = "127.0.0.1"
-    @Published var port: UInt16 = 5000
-    
     // Start the workout.
     func startWorkout(workoutType: HKWorkoutActivityType) {
         let configuration = HKWorkoutConfiguration()
@@ -55,7 +50,6 @@ class WorkoutManager: NSObject, ObservableObject {
         builder?.beginCollection(withStart: startDate) { (success, error) in
             // The workout has started.
         }
-        networkClient.open(ip: ip, port: port)
     }
     
     // Request authorization to access HealthKit.
@@ -109,11 +103,9 @@ class WorkoutManager: NSObject, ObservableObject {
     func endWorkout() {
         print("end")
         session?.end()
-        networkClient.close()
     }
     
     // MARK: - Workout Metrics
-    @Published var averageHeartRate: Double = 0
     @Published var heartRate: Double = 0
     @Published var workout: HKWorkout?
     
@@ -121,13 +113,9 @@ class WorkoutManager: NSObject, ObservableObject {
         guard let statistics = statistics else { return }
 
         let heartRateUnit = HKUnit(from: "count/min")
-        let averageHeartRate = statistics.averageQuantity()?.doubleValue(for: heartRateUnit) ?? 0
         let heartRate = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit) ?? 0
-        networkClient.send(text: "\(builder?.elapsedTime ?? 0),\(heartRate),\(averageHeartRate)")
-        print("heart rate: \(heartRate)\naverage heart rate: \(averageHeartRate)\n")
         
         DispatchQueue.main.async {
-            self.averageHeartRate = averageHeartRate
             self.heartRate = heartRate
         }
     }
@@ -138,7 +126,6 @@ class WorkoutManager: NSObject, ObservableObject {
         builder = nil
         workout = nil
         session = nil
-        averageHeartRate = 0
         heartRate = 0
     }
 }
